@@ -17,9 +17,6 @@ const Homepage = () => {
       <Link to={"/exec"}>
         <Card title={"Exec"} />
       </Link>
-      <Link to={"/editor"}>
-        <Card title={"Editor"} />
-      </Link>
     </div>
   );
 };

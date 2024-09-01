@@ -1,11 +1,12 @@
 import React from 'react'
-import Editor from './Editor'
-import Homebutton from './Homebutton'
+import Editor from './SubComponent/Editor'
+import ButtonSection from "./SubComponent/ButtonSection"
 
 const Exec = () => {
   return (
     <>
-    <Homebutton/>
+    <ButtonSection/>
+
     <Editor editorHeading={"Exec Summary"}/>
     <hr/>
     <Editor editorHeading={"Passengers"}/>

@@ -1,12 +1,10 @@
 import React from "react";
-import Homebutton from "./Homebutton";
+import ButtonSection from "./SubComponent/ButtonSection"
 
 const Operation = () => {
-  return (
-    <>
-      <div>Operation</div>
-      <Homebutton />
-    </>
+  return (<>
+  <ButtonSection/>
+  </>
   );
 };
 

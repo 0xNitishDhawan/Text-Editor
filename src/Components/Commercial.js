@@ -1,11 +1,11 @@
 import React from "react";
-import Homebutton from "./Homebutton";
-import Editor from "./Editor";
+import ButtonSection from "./SubComponent/ButtonSection"
+import Editor from "./SubComponent/Editor";
 
 const Commercial = () => {
   return (
     <>
-      <Homebutton/>
+      <ButtonSection/>
       <Editor editorHeading={"Revenue Performance Summary"}/>
       <hr/>
       <Editor editorHeading={"Commercial Opex Summary"}/>
@@ -16,7 +16,6 @@ const Commercial = () => {
       <hr/>
       <Editor editorHeading={"Opex R&Os vs. MBP 2024-26"}/>
       <hr/>
-      
     </>
   );
 };

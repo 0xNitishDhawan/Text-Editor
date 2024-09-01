@@ -7,40 +7,10 @@ app.use(cors());
 
 app.use(express.json());
 
-// app.post("/solution/update-file", (req, res) => {
-//   const { date, summaryCommentary, solutionCommentary, supportCommentary } = req.body;
-//   const filePath = 'C:/Users/Nitish Dhawan/OneDrive - BENNETT UNIVERSITY/Desktop/Destination.xlsx';
-//   const workbook = XLSX.readFile(filePath);
-//   const sheetName = "Sheet1";
-//   const sheet = workbook.Sheets[sheetName];
-
-//   if (sheet) {
-//     sheet["!ref"] = "A1:D10";
-//     sheet["A1"] = { v: "Fiscal Period" };
-//     sheet["B1"] = { v: "Business Unit" };
-//     sheet["C1"] = { v: "Performance", t: "s" };
-//     sheet["D1"] = { v: "Summary", t: "s" };
-//     sheet["A2"] = { v: date };
-//     sheet["A3"] = { v: date };
-//     sheet["A4"] = { v: date };
-//     sheet["B2"] = { v: "Summary", t: "s" };
-//     sheet["B3"] = { v: "Solution", t: "s" };
-//     sheet["B4"] = { v: "Support Services", t: "s" };
-//     sheet["D2"] = { v: summaryCommentary, t: "s" };
-//     sheet["C3"] = { v: solutionCommentary, t: "s" };
-//     sheet["C4"] = { v: supportCommentary, t: "s" };
-
-//     XLSX.writeFile(workbook, filePath);
-//     res.send("Excel file updated successfully!");
-//   } else {
-//     res.status(400).send("Sheet not found!");
-//     console.log("Something Went Wrong")
-//   }
-// });
+const filePath = 'C:/Users/Nitish Dhawan/OneDrive - BENNETT UNIVERSITY/Desktop/Destination.xlsx';
 
 app.post("/solution/update-file", (req, res) => {
   const { date, summaryCommentary, solutionCommentary, supportCommentary } = req.body;
-  const filePath = 'C:/Users/Nitish Dhawan/OneDrive - BENNETT UNIVERSITY/Desktop/Destination.xlsx';
   const workbook = XLSX.readFile(filePath);
   const sheetName = "Sheet1";
   const sheet = workbook.Sheets[sheetName];
@@ -83,7 +53,6 @@ app.post("/solution/update-file", (req, res) => {
 
 app.post("/solution/fetch-data", (req, res) => {
   const { date } = req.body;
-  const filePath = 'C:/Users/Nitish Dhawan/OneDrive - BENNETT UNIVERSITY/Desktop/Destination.xlsx';
   const workbook = XLSX.readFile(filePath);
   const sheetName = "Sheet1";
   const sheet = workbook.Sheets[sheetName];
