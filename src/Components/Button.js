@@ -1,10 +1,10 @@
 import React from "react";
 
-const Button = ({ handleClick }) => {
+const Button = ({ handleClick, text }) => {
   return (
     <div className="htmlButtonDiv">
       <button className="htmlButton" onClick={handleClick}>
-        Convert to HTML
+        {text}
       </button>
     </div>
   );

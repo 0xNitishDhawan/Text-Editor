@@ -95,3 +95,9 @@ body {
   width: 100vw;
   text-align: center;
 }
+
+.buttonSection{
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}

@@ -107,12 +107,10 @@ import Homebutton from "./Homebutton";
 import Editor from "./Editor";
 import Button from "./Button";
 const Solution = ({ filePath }) => {
-  const [summaryDate, setSummaryDate] = useState("date1");
-  const [summaryCommentary, setSummaryCommentary] = useState("text11");
-  const [solutionDate, setSolutionDate] = useState("date2");
-  const [solutionCommentary, setSolutionCommentary] = useState("text2");
-  const [supportDate, setsupportDate] = useState("date3");
-  const [supportCommentary, setsupportCommentary] = useState("text3");
+  const [date, setDate] = useState("");
+  const [summaryCommentary, setSummaryCommentary] = useState("");
+  const [solutionCommentary, setSolutionCommentary] = useState("");
+  const [supportCommentary, setsupportCommentary] = useState("");
 
   // const [file, setFile] = useState(null);
 
@@ -122,51 +120,86 @@ const Solution = ({ filePath }) => {
 
   const handleClick = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/solution/update-file", {
-        summaryDate,
-        summaryCommentary,
-        solutionDate,
-        solutionCommentary,
-        supportDate,
-        supportCommentary
-      });
+      const response = await axios.post(
+        "http://localhost:5000/solution/update-file",
+        {
+          date,
+          summaryCommentary,
+          solutionCommentary,
+          supportCommentary,
+        }
+      );
       console.log(response.data);
-      alert("The excel File has been Updated Successfully.")
+      alert("The excel File has been Updated Successfully.");
     } catch (error) {
       console.log(error, "something went wrong");
+      alert(
+        "Something went wrong, maybe the file is already opened or path entered is Incorrect"
+      );
     }
   };
+
+  const handleFetch = async () => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/solution/fetch-data",
+        {
+          date,
+        }
+      );
+
+      const { summaryCommentary, solutionCommentary, supportCommentary } =
+        response.data;
+
+      // Update the state with the fetched data
+      setSummaryCommentary(summaryCommentary);
+      setSolutionCommentary(solutionCommentary);
+      setsupportCommentary(supportCommentary);
+      setTimeout(() => {
+        alert("Data fetched successfully.");
+      }, 500);
+    } catch (error) {
+      console.log(error, "something went wrong");
+      alert(
+        "Something went wrong!\nData might not be available for the selected date, or the file is already opened or path entered is Incorrect"
+      );
+    }
+  };
+
   return (
     <>
       <Homebutton />
-      <Button handleClick={handleClick} />
+      <div className="buttonSection">
+        <Button handleClick={handleFetch} text={"Fetch Data"} />
+        <Button handleClick={handleClick} text={"Convert to HTML"} />
+      </div>
       {/* <input type="file" onChange={handleFileChange} /> */}
       <Editor
         editorHeading={"Summary"}
-        date={summaryDate}
-        setDate={setSummaryDate}
+        date={date}
+        setDate={setDate}
         value={summaryCommentary}
         setValue={setSummaryCommentary}
       />
-      <div>{summaryCommentary}</div>
+      {/* <div>{summaryCommentary}</div> */}
       <hr />
       <Editor
         editorHeading={"Solutions"}
-        date={solutionDate}
-        setDate={setSolutionDate}
+        date={date}
+        setDate={setDate}
         value={solutionCommentary}
         setValue={setSolutionCommentary}
       />
-      <div>{solutionCommentary}</div>
+      {/* <div>{solutionCommentary}</div> */}
       <hr />
       <Editor
         editorHeading={"Support Services"}
-        date={supportDate}
-        setDate={setsupportDate}
+        date={date}
+        setDate={setDate}
         value={supportCommentary}
         setValue={setsupportCommentary}
       />
-      <div>{supportCommentary}</div>
+      {/* <div>{supportCommentary}</div> */}
     </>
   );
 };
