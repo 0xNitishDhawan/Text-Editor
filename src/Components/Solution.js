@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Editor from "./SubComponent/Editor";
 import ButtonSection from "./SubComponent/ButtonSection";
-const Solution = ({ filePath }) => {
+const Solution = () => {
   const [date, setDate] = useState("");
   const [summaryCommentary, setSummaryCommentary] = useState("");
   const [solutionCommentary, setSolutionCommentary] = useState("");
