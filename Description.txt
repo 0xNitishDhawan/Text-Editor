@@ -1,0 +1,25 @@
+->path.js file contains variables in which path of the output file is to be determined.
+->package.json file contains information about packages which are required for execution of the website Frontend.
+->Public Folder contains the HTML File in which the basic structure of website will be rendered after the application starts running.
+
+->Server folder contains two files index.js and package.json
+-->index.js File is the Backend Server file, in which code is written for data fetching and sending the data to excel file.
+-->package.json file contains information about packages which are required for execution of the Backend Server.
+
+->src folder contains the Frontend Code.
+-->App.css and index.css contain the styling of the frontend of the Website
+-->index.js is the root file which renders the appliaction in the html file
+-->app.js file contains the structure of the applicaiton and it gets rendered inside index.js. It contains the routes for the homepage and different macros and helps in redirecting the user to their desired page on button click.
+-->Components folder contains the code of different macro pages and some reusable components of the application.
+--->Commercial.js contains the code for the commercial macro page
+--->Exec.js contains the code for the Exec macro page
+--->Operation.js contains the code for the Operations macro page
+--->Solution.js contains the code for the Solutions macro page
+--->SubComponent folder contains the reusable components of the application.
+---->Button.js helps in rendering a button element
+---->ButtonSection.js helps in aligning the different buttons(FetchData, Convert, Home button) together in one place.
+---->Card.js helps in rendering a card element which can be seen at the homepage of the application
+---->Editor.js helps in rendering the textbox and date dropdown which user can select and format the text in the textbox.
+---->Homebutton.js helps in rendering the Go to Homepage button.
+---->Homepage.js contains the code that is displayed on the homepage of the application
+
